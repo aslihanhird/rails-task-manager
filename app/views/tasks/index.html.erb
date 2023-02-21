@@ -1,18 +1,24 @@
-<h1>My tasks</h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-    <% if task.completed? %>
-      <i class="fa-regular fa-square"></i>
-    <% else %>
-      <i class="fa-regular fa-square-check"></i>
-    <% end %>
-    <%= link_to task.title, task_path(task) %>
-    ·
-    <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this task?'} do %><i class="fa-regular fa-trash-can"></i>
-    <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="m-4">
+  <h1>My tasks</h1>
 
-<p><%= link_to 'Create a new task', new_task_path %></p>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+      <% if task.completed? %>
+        <i class="fa-regular fa-square"></i>
+      <% else %>
+        <i class="fa-regular fa-square-check"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task) %>
+      ·
+      <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this task?'} do %><i class="fa-regular fa-trash-can"></i>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="add-btn">
+    <p><%= link_to new_task_path do %>
+      <i class="fa-solid fa-plus small-icon"></i>Add a new task
+    <% end %></p>
+  </div>
+</div>

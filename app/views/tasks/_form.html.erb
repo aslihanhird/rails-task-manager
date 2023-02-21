@@ -1,8 +1,13 @@
+
 <%= form_with model: @task do |f| %>
+  <div class="mb-3">
   <%= f.label :title %>
   <%= f.text_field :title %>
+  </div>
+  <div class="mb-3">
   <%= f.label :details %>
   <%= f.text_field :details %>
+  </div>
   <%= f.check_box :completed unless @task.new_record?() %>
   <%= f.label :completed, 'Task completed' unless @task.new_record?() %>
   <%= f.submit %>
